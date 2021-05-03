@@ -1,12 +1,15 @@
-import { AnimateSharedLayout } from 'framer-motion';
 import React from 'react';
 import '../styles/globals.css';
+import Provider from '../lib/provider';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AnimateSharedLayout>
-      <Component {...pageProps} />
-    </AnimateSharedLayout>
+    <>
+      <Provider>
+        <Component {...pageProps} />
+      </Provider>
+      ,
+    </>
   );
 }
 

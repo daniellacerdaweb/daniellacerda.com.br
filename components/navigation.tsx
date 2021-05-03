@@ -20,16 +20,16 @@ const Navigation = () => (
             </Link>
           </div>
           <div className="flex items-center cursor-pointer py-5 px-3">
-            <Link href="/About">
+            <Link href="/about">
               <a className="flex items-center cursor-pointer py-5 px-3"> Sobre</a>
             </Link>
-            <Link href="/Portfolio">
+            <Link href="/portfolio">
               <a className="flex items-center cursor-pointer py-5 px-3"> Portfólio</a>
             </Link>
-            <Link href="/Stacks">
+            <Link href="/stacks">
               <a className="flex items-center cursor-pointer py-5 px-3"> Stacks</a>
             </Link>
-            <Link href="/Contact">
+            <Link href="/contact">
               <a className="flex items-center cursor-pointer py-5 px-3">Contato</a>
             </Link>
           </div>
