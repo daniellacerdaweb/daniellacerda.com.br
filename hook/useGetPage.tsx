@@ -1,8 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
+import { useGetLocale } from './useGetLocale';
 
 const GET_PAGE = gql`
-  query getPage($id: String!) {
-    page(id: $id) {
+  query getPage($id: String!, $locale: String!) {
+    page(id: $id, locale: $locale) {
       title
       contents {
         json
@@ -15,7 +16,6 @@ const GET_PAGE = gql`
 `;
 
 export const useGetPage = (id: string) => {
-  console.log(useGetPage);
-  const data = useQuery(GET_PAGE, { variables: { id }, fetchPolicy: 'no-cache' });
-  return data;
+  const locale = useGetLocale();
+  return useQuery(GET_PAGE, { variables: { id, locale } });
 };

@@ -1,10 +1,8 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Layout from '../components/layout';
-import Navigation from '../components/navigation';
 
 const Home = () => (
-  <Layout>
+  <>
     <section>
       <div className="min-h-screen flex flex-col justify-center md:flex-row-reverse  " id="home">
         <div className="w-full flex items-end  ">
@@ -18,7 +16,7 @@ const Home = () => (
         </div>
       </div>
     </section>
-  </Layout>
+  </>
 );
 
 export default Home;

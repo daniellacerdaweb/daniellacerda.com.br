@@ -1,18 +1,19 @@
-import { motion } from 'framer-motion';
 import React from 'react';
-import Layout from '../components/layout';
-import Navigation from '../components/navigation';
-import { gql, useQuery } from '@apollo/client';
-import { useGetLocation } from '../hook/useGetLocation';
 import { useGetPage } from '../hook/useGetPage';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const templateAbout = (data) => (
   <section>
-    <div className="min-h-screen flex flex-col justify-center md:flex-row-reverse " id="about">
+    <div className="min-h-screen flex flex-col justify-center md:flex-row-reverse" id="about">
       <div className="w-full mt-16 md:w-3/6 flex items-end justify-end ">
-        <LazyLoadImage src="/images/about.png" alt="profile" className="flex m-0" effect="blur" />
+        <LazyLoadImage
+          src={data?.page.image.url}
+          alt="profile"
+          className="flex m-0"
+          effect="opacity"
+          delayMethod="throttle"
+        />
       </div>
       <div className="w-full md:w-3/6 flex items-center">
         <div className="w-full md:w-4/5 m-auto">
@@ -28,8 +29,7 @@ const templateAbout = (data) => (
 
 const About = () => {
   const { data, loading, error } = useGetPage('2EBL2sXtaDvbHsVwxuNWdd');
-  console.log();
-  return <Layout>{data && templateAbout(data)}</Layout>;
+  return <>{data && templateAbout(data)}</>;
 };
 
 export default About;

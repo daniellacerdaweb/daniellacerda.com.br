@@ -1,10 +1,8 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Layout from '../components/layout';
-import Navigation from '../components/navigation';
 
 const Stacks = () => (
-  <Layout>
+  <>
     <section>
       <div className="min-h-screen flex flex-col justify-center md:flex-row-reverse" id="stacks">
         <div className="w-full mt-16 md:w-3/6 flex items-end justify-end ">
@@ -22,7 +20,7 @@ const Stacks = () => (
         </div>
       </div>
     </section>
-  </Layout>
+  </>
 );
 
 export default Stacks;

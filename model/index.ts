@@ -1,1 +1,1 @@
-export {Location} from './enum'
+export {Locale} from './enum'

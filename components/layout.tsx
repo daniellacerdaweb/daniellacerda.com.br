@@ -18,7 +18,6 @@ export default function Layout({ children, title = 'This is the default title' }
       <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
         {children}
       </motion.section>
-      <footer>{'I`m here to stay'}</footer>
     </div>
   );
 }

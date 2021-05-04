@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 import { cache } from './cache';
 
 const httpLink = createHttpLink({
-  uri: 'https://graphql.contentful.com/content/v1/spaces/ysanazl5ule2'
+  uri: `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_SPACES_CONTENTFUL}`
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -13,7 +13,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      Authorization: `Bearer Ek2cj8esfFx6or1JeKpZVxcI22w0sGOsk46-x9xuHY4`
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_CONTENTFUL}`
     }
   };
 });

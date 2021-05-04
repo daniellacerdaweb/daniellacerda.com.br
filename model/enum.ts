@@ -1,4 +1,4 @@
-export enum Location {
+export enum Locale {
   ptBr = 'pt-BR',
   enUS = 'en-US'
 }

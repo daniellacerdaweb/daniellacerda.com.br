@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const Navigation = () => (
   <header>
-    <nav className="fixed z-50 min-w-full bg-gray-100">
-      <div className="max-w-6xl mx-auto">
+    <nav className="fixed z-50 min-w-full bg-white bg-opacity-50">
+      <div className="mx-auto">
         <div className="flex justify-center md:justify-between">
           <div className="hidden flex space-x-2 sm:flex justify-self-center">
             <Link href="/">

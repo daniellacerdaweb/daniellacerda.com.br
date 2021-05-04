@@ -1,13 +1,13 @@
-import { makeVar, FieldPolicy, ReactiveVar, InMemoryCache } from '@apollo/client';
-import { Location } from '../../model';
+import { makeVar, ReactiveVar, InMemoryCache } from '@apollo/client';
+import { Locale } from '../../model';
 
 export const cache: InMemoryCache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        location: {
+        locale: {
           read() {
-            return location();
+            return localeVar();
           }
         }
       }
@@ -15,4 +15,4 @@ export const cache: InMemoryCache = new InMemoryCache({
   }
 });
 
-export const location: ReactiveVar<Location> = makeVar<Location>(Location.ptBr);
+export const localeVar: ReactiveVar<Locale> = makeVar<Locale>(Locale.ptBr);
