@@ -1,1 +1,2 @@
-export {Locale} from './enum'
+export { Locale } from './enum';
+export { IPages } from './model';

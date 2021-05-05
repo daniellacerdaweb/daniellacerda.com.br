@@ -27,9 +27,9 @@ const templateContact = (data) => {
   );
 };
 
-const Contact = () => {
+const Contato = () => {
   const { data } = useGetPage('4z5mG1U8YlzI9MC7xees7O');
   return <>{data && templateContact(data)}</>;
 };
 
-export default Contact;
+export default Contato;

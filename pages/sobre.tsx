@@ -2,6 +2,7 @@ import React from 'react';
 import { useGetPage } from '../hook/useGetPage';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { useGetIdPage } from '../hook/useGetIdPage';
 
 const templateAbout = (data) => (
   <section>
@@ -27,9 +28,11 @@ const templateAbout = (data) => (
   </section>
 );
 
-const About = () => {
+const Sobre = () => {
+  const id = useGetIdPage();
+  console.log(id);
   const { data, loading, error } = useGetPage('2EBL2sXtaDvbHsVwxuNWdd');
   return <>{data && templateAbout(data)}</>;
 };
 
-export default About;
+export default Sobre;

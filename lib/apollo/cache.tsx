@@ -1,5 +1,5 @@
 import { makeVar, ReactiveVar, InMemoryCache } from '@apollo/client';
-import { Locale } from '../../model';
+import { IPages, Locale } from '../../model';
 
 export const cache: InMemoryCache = new InMemoryCache({
   typePolicies: {
@@ -9,6 +9,11 @@ export const cache: InMemoryCache = new InMemoryCache({
           read() {
             return localeVar();
           }
+        },
+        listaPages: {
+          read() {
+            return pagesVar();
+          }
         }
       }
     }
@@ -16,3 +21,4 @@ export const cache: InMemoryCache = new InMemoryCache({
 });
 
 export const localeVar: ReactiveVar<Locale> = makeVar<Locale>(Locale.ptBr);
+export const pagesVar: ReactiveVar<IPages[]> = makeVar<IPages[]>([]);
