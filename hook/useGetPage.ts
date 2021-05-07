@@ -1,21 +1,25 @@
 import { gql, useQuery } from '@apollo/client';
+import { useRouter } from 'next/router';
 import { useGetLocale } from './useGetLocale';
 
 const GET_PAGE = gql`
-  query getPage($id: String!, $locale: String!) {
-    page(id: $id, locale: $locale) {
-      title
-      contents {
-        json
-      }
-      image {
-        url
+  query getPage($path: String!, $locale: String!) {
+    pageCollection(where: { path: $path }, locale: $locale) {
+      items {
+        title
+        contents {
+          json
+        }
+        image {
+          url
+        }
       }
     }
   }
 `;
 
-export const useGetPage = (id: string) => {
+export const useGetPage = () => {
+  const router = useRouter().route.replace('/', '');
   const locale = useGetLocale();
-  return useQuery(GET_PAGE, { variables: { id, locale } });
+  return useQuery(GET_PAGE, { variables: { path: router, locale } });
 };

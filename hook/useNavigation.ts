@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client';
-import { pagesVar } from '../lib/apollo/cache';
 import { IPages } from '../model';
 import { useGetLocale } from './useGetLocale';
 
@@ -27,7 +26,6 @@ export const useGetNavigate = () => {
 function parseNavigation(data) {
   const navigation = clearNavigation(data);
   const sortNavigationByOrder = sortNavigation(navigation);
-  pagesVar(sortNavigationByOrder);
   return sortNavigationByOrder;
 }
 
