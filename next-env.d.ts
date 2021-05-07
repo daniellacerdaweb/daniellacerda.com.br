@@ -7,7 +7,3 @@ declare namespace NodeJS {
     NEXT_PUBLIC_TOKEN_CONTENTFUL: string
   }
 }
-
-
-
-

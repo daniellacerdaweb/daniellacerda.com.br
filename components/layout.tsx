@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import React from 'react';
-import Navigation from './navigation';
 import { motion } from 'framer-motion';
+import Navigation from './navigation';
 
-export default function Layout({ children, title = 'This is the default title' }) {
+export default function Layout({ children, title = 'Daniel Lacerda' }:any) {
   return (
     <div>
       <Head>
