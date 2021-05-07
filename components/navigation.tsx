@@ -22,12 +22,12 @@ const Navigation = () => {
   );
 
   const loader = (
-    <div className="flex justify-center h-4 w-2/2 bg-gray-300 rounded animate-pulse mr-10	"></div>
+    <div className="flex justify-center h-4 w-2/2 bg-gray-300 rounded animate-pulse mr-10	" />
   );
 
   return (
     <header>
-      <nav className="fixed z-50 min-w-full bg-white bg-opacity-50">
+      <nav className="min-w-full bg-white bg-opacity-50">
         <div className="mx-auto">
           <div className="flex justify-center items-center md:justify-between">
             {logo}
