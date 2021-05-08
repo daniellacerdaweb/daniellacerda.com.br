@@ -21,6 +21,6 @@ const GET_PORTFOLIO = gql`
   }
 `;
 
-export const usegetPortfolio = () => {
+export const useGetPortfolio = () => {
   return useQuery<getPortfolio>(GET_PORTFOLIO);
 };

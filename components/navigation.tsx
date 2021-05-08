@@ -1,9 +1,9 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Link from 'next/link';
-import { IListaNavigate } from './model/navigation';
+import { NavigateItem } from './model/navigation';
 
 type Props = {
-  listaNavigate: IListaNavigate[];
+  listaNavigate: NavigateItem[];
 };
 
 const Navigation = ({ listaNavigate }: Props) => {
@@ -19,7 +19,7 @@ const Navigation = ({ listaNavigate }: Props) => {
   );
 };
 
-const menu = (navigation: IListaNavigate[]) => {
+const menu = (navigation: NavigateItem[]) => {
   return (
     <div className="flex items-center cursor-pointer py-5 px-3">
       {navigation.map(({ path, title }) => (

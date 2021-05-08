@@ -4,8 +4,8 @@ import { useGetStacks } from '../hook/useStacks';
 const templateAbout = (data) => {
   const stacks = data.map(({ title, stacks }) => (
     <div className="w-4/12">
-      <h1 className="text-2xl font-semibold mb-5 sm: center sm: text-center">{title}</h1>
-      <div className="flex flex-wrap sm:text-centernp justify-center">
+      <h1 className="text-2xl font-semibold mb-5 ">{title}</h1>
+      <div className="flex flex-wrap sm:text-center ">
         {stacks.map((stack) => (
           <div key={stack} className="w-36 rounded-full py-3 px-6 bg-yellow-200  m-1">
             {stack}
