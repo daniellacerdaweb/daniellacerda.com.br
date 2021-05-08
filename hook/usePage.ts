@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { useGetLocale } from './useGetLocale';
+import { getPage } from './model/getPage';
+import { useGetLocale } from './useLocale';
 
 const GET_PAGE = gql`
   query getPage($path: String!, $locale: String!) {
@@ -21,5 +22,5 @@ const GET_PAGE = gql`
 export const useGetPage = () => {
   const router = useRouter().route.replace('/', '');
   const locale = useGetLocale();
-  return useQuery(GET_PAGE, { variables: { path: router, locale } });
+  return useQuery<getPage>(GET_PAGE, { variables: { path: router, locale } });
 };

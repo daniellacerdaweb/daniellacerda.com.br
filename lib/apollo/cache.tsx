@@ -10,9 +10,9 @@ export const cache: InMemoryCache = new InMemoryCache({
         locale: {
           read() {
             return localeVar();
-          },
-        },
-      },
-    },
-  },
+          }
+        }
+      }
+    }
+  }
 });

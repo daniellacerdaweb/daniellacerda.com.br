@@ -5,9 +5,8 @@ import { useGetNavigate } from '../hook/useNavigation';
 
 const Navigation = () => {
   const { data, loading } = useGetNavigate();
-
   const logo = (
-    <div className="hidden flex space-x-2 sm:flex justify-self-center">
+    <div className="hidden space-x-2 sm:flex justify-self-center">
       <Link href="/">
         <a className="flex items-center cursor-pointer py-5 px-3">
           <LazyLoadImage
@@ -31,7 +30,7 @@ const Navigation = () => {
         <div className="mx-auto">
           <div className="flex justify-center items-center md:justify-between">
             {logo}
-            {loading ? loader : renderMenu(data)}
+            {loading ? loader : renderMenu(data.pageCollection.items)}
           </div>
         </div>
       </nav>
@@ -41,7 +40,7 @@ const Navigation = () => {
 
 function renderMenu(navigation) {
   const nav = navigation.map(({ path, title }) => (
-    <Link href={path} key={path}>
+    <Link href={`/${path}`} key={path}>
       <a className="flex items-center cursor-pointer py-5 px-3"> {title}</a>
     </Link>
   ));

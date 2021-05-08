@@ -2,7 +2,7 @@ import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { useGetPage } from '../hook/useGetPage';
+import { useGetPage } from '../hook/usePage';
 
 const options = {
   renderNode: {

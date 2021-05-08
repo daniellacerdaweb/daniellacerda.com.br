@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGetStacks } from '../hook/useGetStacks';
+import { useGetStacks } from '../hook/useStacks';
 
 const templateAbout = (data) => (
   <>
