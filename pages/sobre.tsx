@@ -18,12 +18,12 @@ const options = {
 
 const templateAbout = (data) => (
   <section>
-    <div className="min-h-screen flex flex-col justify-center md:flex-row-reverse" id="about">
-      <div className="w-full mt-16 md:w-3/6 flex items-end justify-end ">
+    <div className="flex flex-col justify-center items-start md:flex-row-reverse" id="about">
+      <div className="w-full md:w-3/6 flex items-end justify-end">
         <LazyLoadImage
           src={data.image.url}
           alt="profile"
-          className="flex m-0"
+          className="w-full h-full"
           effect="opacity"
           delayMethod="throttle"
         />

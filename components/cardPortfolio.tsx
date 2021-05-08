@@ -1,6 +1,6 @@
 const CardPortfolio = () => (
   <>
-    <div className="bg-white w-72 m-2 shadow-lg cursor-pointer rounded ">
+    <div className="bg-white w-1/5 m-2 shadow-lg cursor-pointer rounded ">
       <div>
         <img src="https://picsum.photos/400/300" alt="" className="rounded-t" />
       </div>

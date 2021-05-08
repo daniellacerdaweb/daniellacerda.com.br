@@ -26,7 +26,7 @@ const Navigation = () => {
 
   return (
     <header>
-      <nav className="min-w-full bg-white bg-opacity-50">
+      <nav className="mx-10">
         <div className="mx-auto">
           <div className="flex justify-center items-center md:justify-between">
             {logo}

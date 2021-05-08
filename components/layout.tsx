@@ -3,9 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navigation from './navigation';
 
-export default function Layout({ children, title = 'Daniel Lacerda' }:any) {
+export default function Layout({ children, title = 'Daniel Lacerda' }: any) {
   return (
-    <div>
+    <div className="h-screen">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />

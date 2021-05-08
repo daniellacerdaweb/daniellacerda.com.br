@@ -8,7 +8,6 @@ const Provider = ({ children }) => (
     <ApolloProvider client={client}>
       <AnimateSharedLayout>{children}</AnimateSharedLayout>
     </ApolloProvider>
-    ,
   </>
 );
 
