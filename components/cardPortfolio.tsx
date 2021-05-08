@@ -1,19 +1,15 @@
 const CardPortfolio = () => (
-  <>
-    <div className="bg-white w-1/5 m-2 shadow-lg cursor-pointer rounded ">
-      <div>
-        <img src="https://picsum.photos/400/300" alt="" className="rounded-t" />
-      </div>
-      <div className="p-4">
-        <h2 className="text-2xl uppercase">Item a</h2>
-        <p className="font-light text-gray-500 text-lg my-2">29,99 &euro;</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-        </p>
-        {/* <a href="#sss" className="block bg-gray-300 py-2 px-2 text-gray-600 text-center rounded shadow-lg uppercase font-light mt-6 hover:bg-gray-400 hover:text-white duration-300 ease-in-out">Add to cart</a> */}
-      </div>
+  <div className="w-96 h-96 m-1 overflow-hidden bg-white shadow-xl rounded-3xl">
+    <div className="overflow-hidden  w-full h-56  ">
+      <img src="https://picsum.photos/400/300" alt="" className="w-full " />
     </div>
-  </>
+    <hr />
+    <p className="text-lg ml-2 my-1">Teste</p>
+    <hr className="mx-1" />
+    <div className="flex w-full flex-wrap justify-between">
+      <span className="bg-gray-200 px-4 py-1 m-1 rounded-full">React</span>
+    </div>
+  </div>
 );
 
 export default CardPortfolio;

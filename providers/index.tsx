@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnimateSharedLayout } from 'framer-motion';
 import { ApolloProvider } from '@apollo/client/react';
-import client from './apollo/client';
+import client from '../lib/apollo/client';
 
 const Provider = ({ children }) => (
   <>

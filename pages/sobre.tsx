@@ -17,27 +17,23 @@ const options = {
 };
 
 const templateAbout = (data) => (
-  <section>
-    <div className="flex flex-col justify-center items-start md:flex-row-reverse" id="about">
-      <div className="w-full md:w-3/6 flex items-end justify-end">
-        <LazyLoadImage
-          src={data.image.url}
-          alt="profile"
-          className="w-full h-full"
-          effect="opacity"
-          delayMethod="throttle"
-        />
-      </div>
-      <div className="w-full md:w-3/6 flex items-center">
-        <div className="w-full md:w-4/5 m-auto">
-          <div className="mx-3 mt-5 ">
-            <h1 className="text-5xl font-semibold mb-5">{data.title}</h1>
-            {documentToReactComponents(data.contents.json, options)}
-          </div>
-        </div>
+  <div className="flex flex-col justify-center items-start md:flex-row-reverse" id="about">
+    <div className="w-full md:w-3/6 flex items-end justify-end">
+      <LazyLoadImage
+        src={data.image.url}
+        alt="profile"
+        className="w-full h-full"
+        effect="opacity"
+        delayMethod="throttle"
+      />
+    </div>
+    <div className="w-full md:w-3/6 flex items-center">
+      <div className="w-full">
+        <h1 className="text-5xl font-semibold mb-5">{data.title}</h1>
+        {documentToReactComponents(data.contents.json, options)}
       </div>
     </div>
-  </section>
+  </div>
 );
 
 const Sobre = () => {

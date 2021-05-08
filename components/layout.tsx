@@ -2,21 +2,21 @@ import Head from 'next/head';
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navigation from './navigation';
+import { useGetNavigate } from '../hook/useNavigation';
 
-export default function Layout({ children, title = 'Daniel Lacerda' }: any) {
+const Layout = ({ children, title = 'Daniel Lacerda' }) => {
+  const { data } = useGetNavigate();
   return (
-    <div className="h-screen">
+    <div className="h-screen ">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <header>
-        <Navigation />
-      </header>
-      <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-        {children}
-      </motion.section>
+      {data && <Navigation listaNavigate={data?.pageCollection.items} />}
+      <section className="flex flex-col w-12/12 mx-20">{children}</section>
     </div>
   );
-}
+};
+
+export default Layout;

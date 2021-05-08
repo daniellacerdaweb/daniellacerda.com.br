@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client';
-import { IPages } from '../model';
 import { getNavigate } from './model/getNavigate';
 import { useGetLocale } from './useLocale';
 

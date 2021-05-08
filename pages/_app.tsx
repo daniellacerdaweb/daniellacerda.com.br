@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/globals.css';
-import Provider from '../lib/provider';
+import Provider from '../providers';
 import Layout from '../components/layout';
 
 function MyApp({ Component, pageProps }: any) {

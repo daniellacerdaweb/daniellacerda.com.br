@@ -1,51 +1,48 @@
-import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Link from 'next/link';
-import { useGetNavigate } from '../hook/useNavigation';
+import { IListaNavigate } from './model/navigation';
 
-const Navigation = () => {
-  const { data, loading } = useGetNavigate();
-  const logo = (
-    <div className="hidden space-x-2 sm:flex justify-self-center">
-      <Link href="/">
-        <a className="flex items-center cursor-pointer py-5 px-3">
-          <LazyLoadImage
-            src="/images/daniel-logo.svg"
-            alt="profile"
-            className="flex items-center h-10"
-            effect="blur"
-          />
-        </a>
-      </Link>
-    </div>
-  );
+type Props = {
+  listaNavigate: IListaNavigate[];
+};
 
-  const loader = (
-    <div className="flex justify-center h-4 w-2/2 bg-gray-300 rounded animate-pulse mr-10	" />
-  );
-
+const Navigation = ({ listaNavigate }: Props) => {
   return (
     <header>
-      <nav className="mx-10">
-        <div className="mx-auto">
-          <div className="flex justify-center items-center md:justify-between">
-            {logo}
-            {loading ? loader : renderMenu(data.pageCollection.items)}
-          </div>
+      <nav className="mx-auto">
+        <div className="flex mx-20 justify-center items-center md:justify-between">
+          {logo}
+          {menu(listaNavigate)}
         </div>
       </nav>
     </header>
   );
 };
 
-function renderMenu(navigation) {
-  const nav = navigation.map(({ path, title }) => (
-    <Link href={`/${path}`} key={path}>
-      <a className="flex items-center cursor-pointer py-5 px-3"> {title}</a>
-    </Link>
-  ));
+const menu = (navigation: IListaNavigate[]) => {
+  return (
+    <div className="flex items-center cursor-pointer py-5 px-3">
+      {navigation.map(({ path, title }) => (
+        <Link href={`/${path}`} key={path}>
+          <a className="flex items-center cursor-pointer py-5 px-3"> {title}</a>
+        </Link>
+      ))}
+    </div>
+  );
+};
 
-  return <div className="flex items-center cursor-pointer py-5 px-3">{nav}</div>;
-}
+const logo = (
+  <div className="hidden sm:flex">
+    <Link href="/">
+      <a className="cursor-pointer">
+        <LazyLoadImage src="/images/daniel-logo.svg" alt="profile" />
+      </a>
+    </Link>
+  </div>
+);
+
+const skeletonMenu = (
+  <div className="flex justify-center h-4 w-2/2 bg-gray-300 rounded animate-pulse mr-10	" />
+);
 
 export default Navigation;
