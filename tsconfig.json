@@ -24,6 +24,7 @@
     "**/*.tsx"
 , "script/download-schema.js"  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./hook/model/globalTypes.ts"
   ]
 }
