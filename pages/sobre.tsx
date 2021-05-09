@@ -1,20 +1,7 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { convertRichText } from '../helper/contentful/richText';
 import { useGetPage } from '../hook/usePage';
-
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="mt-5">{children}</p>,
-    [INLINES.HYPERLINK]: ({ data }: any, children) => (
-      <a href={`${data.uri}`} className="bg-yellow-200 rounded-full py-3 px-6">
-        {children}
-      </a>
-    ),
-    [MARKS.BOLD]: (text) => <b className="font-semibold">{text}</b>
-  }
-};
 
 const templateAbout = (data) => (
   <div className="flex flex-col justify-center items-start md:flex-row-reverse" id="about">
@@ -30,7 +17,7 @@ const templateAbout = (data) => (
     <div className="w-full md:w-3/6 flex items-center">
       <div className="w-full">
         <h1 className="text-5xl font-semibold mb-5">{data.title}</h1>
-        {documentToReactComponents(data.contents.json, options)}
+        {convertRichText(data.contents.json)}
       </div>
     </div>
   </div>

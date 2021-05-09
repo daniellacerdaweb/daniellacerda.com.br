@@ -1,9 +1,9 @@
 import React from 'react';
-import CardPortfolio from '../components/cardPortfolio';
-import { useGetPortfolio } from '../hook/usePortfolio';
+import CardPortfolio from '../../components/cardPortfolio';
+import { useGetAllPortfolio } from '../../hook/usePortfolio';
 
 const Portfolio = () => {
-  const { data } = useGetPortfolio();
+  const { data } = useGetAllPortfolio();
   return (
     <>
       <div className="w-full">
@@ -11,7 +11,7 @@ const Portfolio = () => {
       </div>
       <div className="w-full justify-center flex flex-wrap">
         {data?.portfolioCollection.items.map((portfolio) => (
-          <CardPortfolio portfolio={portfolio} />
+          <CardPortfolio portfolio={portfolio} key={portfolio.path} />
         ))}
       </div>
     </>

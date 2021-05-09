@@ -261,6 +261,7 @@ type Portfolio implements Entry {
   contentfulMetadata: ContentfulMetadata!
   linkedFrom(allowedLocales: [String]): PortfolioLinkingCollections
   title(locale: String): String
+  path(locale: String): String
   image(preview: Boolean, locale: String): Asset
   stacks(locale: String): [String]
   order(locale: String): Int
@@ -503,6 +504,13 @@ input PortfolioFilter {
   title_not_in: [String]
   title_contains: String
   title_not_contains: String
+  path_exists: Boolean
+  path: String
+  path_not: String
+  path_in: [String]
+  path_not_in: [String]
+  path_contains: String
+  path_not_contains: String
   image_exists: Boolean
   stacks_exists: Boolean
   stacks_contains_all: [String]
@@ -541,6 +549,8 @@ input PortfolioFilter {
 enum PortfolioOrder {
   title_ASC
   title_DESC
+  path_ASC
+  path_DESC
   order_ASC
   order_DESC
   git_ASC
