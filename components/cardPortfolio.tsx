@@ -1,15 +1,21 @@
+import { motion } from 'framer-motion';
 import { PortfolioItem } from './model/portfolio';
 
 type Props = {
   portfolio: PortfolioItem;
 };
 
+const item = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 }
+};
+
 const CardPortfolio = ({ portfolio }: Props) => {
   const { image, title, stacks, path } = portfolio;
 
   return (
-    <a href={`/portfolio/${path}`}>
-      <div className="w-96 h-96 m-1 overflow-hidden bg-white shadow-xl rounded-3xl">
+    <motion.a href={`/portfolio/${path}`} variants={item}>
+      <div className="w-96 h-96 m-1 overflow-hidden bg-white shadow-2xl rounded-3xl">
         <div className="overflow-hidden  w-full h-56  ">
           <img src={image.url} alt="" className="w-full " />
         </div>
@@ -23,7 +29,7 @@ const CardPortfolio = ({ portfolio }: Props) => {
           ))}
         </div>
       </div>
-    </a>
+    </motion.a>
   );
 };
 

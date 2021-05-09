@@ -1,45 +1,56 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import { url } from 'node:inspector';
+import React, { CSSProperties } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { convertRichText } from '../helper/contentful/richText';
 import { useGetPage } from '../hook/usePage';
 
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="mt-5">{children}</p>,
-    [INLINES.HYPERLINK]: ({ data }: any, children) => (
-      <a href={`${data.uri}`} className="bg-yellow-200 rounded-full py-3 px-6">
-        {children}
-      </a>
-    ),
-    [MARKS.BOLD]: (text) => <b className="font-semibold">{text}</b>
-  }
+const css: CSSProperties = { backgroundImage: 'url(/images/background.svg)' };
+
+const item = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 }
 };
 
-const templateAbout = (data) => (
-  <div className="flex flex-col justify-center items-start md:flex-row-reverse" id="about">
-    <div className="w-full md:w-3/6 flex items-end justify-end">
-      {/* <LazyLoadImage
+const item2 = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: +100 }
+};
+
+const item3 = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 }
+};
+
+const templateContato = (data) => (
+  <motion.div
+    variants={item3}
+    className="flex h-full bg-no-repeat	bg-right-bottom	bg-contain"
+    style={css}
+    initial="hidden"
+    animate="visible">
+    <motion.div className="w-full md:w-3/6 flex items-center" variants={item}>
+      <div className="w-full">
+        {/* <h1 className="text-5xl text-gray-800 font-semibold mb-5">{data.title}</h1> */}
+        {convertRichText(data.contents.json)}
+      </div>
+    </motion.div>
+    <motion.div className="w-full md:w-3/6 flex items-end justify-end" variants={item2}>
+      <LazyLoadImage
         src={data.image.url}
         alt="profile"
         className="w-full h-full"
         effect="opacity"
         delayMethod="throttle"
-      /> */}
-    </div>
-    <div className="w-full md:w-3/6 flex items-center">
-      <div className="w-full">
-        <h1 className="text-5xl font-semibold mb-5">{data.title}</h1>
-        {documentToReactComponents(data.contents.json, options)}
-      </div>
-    </div>
-  </div>
+      />
+    </motion.div>
+  </motion.div>
 );
 
 const Contato = () => {
   const { data, loading } = useGetPage();
   if (loading) <>carregando</>;
-  return <>{data && templateAbout(data?.pageCollection.items[0])}</>;
+  return <>{data && templateContato(data?.pageCollection.items[0])}</>;
 };
 
 export default Contato;
