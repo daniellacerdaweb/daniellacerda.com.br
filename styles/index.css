@@ -1,15 +1,17 @@
 @tailwind base;
 
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
 
-/* Write you own custom component styles here */
-
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
 
-/* Your own custom utilities */
+.bold {
+  @apply text-gray-800;
+}
+
+.paragraph {
+  @apply mt-5 text-gray-800;
+}
+
+.hyperLink {
+  @apply border-solid border-2 border-yellow-500 text-yellow-500 py-3 px-6;
+}

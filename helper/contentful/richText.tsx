@@ -3,14 +3,12 @@ import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
 export const options = {
   renderMark: {
-    [MARKS.BOLD]: (text) => <b className="text-gray-800">{text}</b>
+    [MARKS.BOLD]: (text) => <b className="bold">{text}</b>
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="mt-5 text-gray-800">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (_, children) => <p className="paragraph">{children}</p>,
     [INLINES.HYPERLINK]: ({ data }: any, children) => (
-      <a
-        href={`${data.uri}`}
-        className="border-solid border-2 border-yellow-500 text-yellow-500 py-3 px-6">
+      <a href={`${data.uri}`} className="hyperLink">
         {children}
       </a>
     )
