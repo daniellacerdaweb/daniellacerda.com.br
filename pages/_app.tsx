@@ -1,5 +1,4 @@
-import React from 'react';
-import '../styles/globals.css';
+import '../styles/index.css';
 import Provider from '../providers';
 import Layout from '../components/layout';
 

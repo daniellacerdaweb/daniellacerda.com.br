@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import Navigation from './navigation';
 import { useGetNavigate } from '../hook/useNavigation';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { AnimateSharedLayout } from 'framer-motion';
 import { ApolloProvider } from '@apollo/client/react';
 import client from '../lib/apollo/client';

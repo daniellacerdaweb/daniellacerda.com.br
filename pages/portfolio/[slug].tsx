@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React from 'react';
+
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { convertRichText } from '../../helper/contentful/richText';
 import { useGetPortfolio } from '../../hook/usePortfolio';
