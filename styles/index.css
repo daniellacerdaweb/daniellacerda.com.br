@@ -15,3 +15,7 @@
 .hyperLink {
   @apply border-solid border-2 border-yellow-500 text-yellow-500 py-3 px-6;
 }
+
+.localeAtivo {
+  @apply rounded-xl bg-gray-800 text-white;
+}

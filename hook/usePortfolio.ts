@@ -1,10 +1,11 @@
 import { gql, useQuery } from '@apollo/client';
 import { getAllPortfolio } from './model/getAllPortfolio';
 import { getPortfolio } from './model/getPortfolio';
+import { useGetLocale } from './useLocale';
 
 const GET_PORTFOLIO = gql`
-  query getPortfolio($path: String!) {
-    portfolioCollection(where: { path: $path }) {
+  query getPortfolio($path: String!, $locale: String!) {
+    portfolioCollection(where: { path: $path }, locale: $locale) {
       items {
         title
         image {
@@ -24,7 +25,8 @@ const GET_PORTFOLIO = gql`
 `;
 
 export const useGetPortfolio = (path: string) => {
-  return useQuery<getPortfolio>(GET_PORTFOLIO, { variables: { path } });
+  const locale = useGetLocale();
+  return useQuery<getPortfolio>(GET_PORTFOLIO, { variables: { path, locale } });
 };
 
 const GET_ALL_PORTFOLIO = gql`

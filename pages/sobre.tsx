@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { url } from 'node:inspector';
 import React, { CSSProperties } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { convertRichText } from '../helper/contentful/richText';

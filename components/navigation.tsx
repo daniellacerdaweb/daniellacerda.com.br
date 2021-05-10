@@ -2,6 +2,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Link from 'next/link';
 import { NavigateItem } from './model/navigation';
 import { useRouter } from 'next/router';
+import { useGetLocale, useSetLocale } from '../hook/useLocale';
+import { Locale } from '../model';
 
 type Props = {
   listaNavigate: NavigateItem[];
@@ -21,6 +23,9 @@ const Navigation = ({ listaNavigate }: Props) => {
 };
 
 const menu = (navigation: NavigateItem[]) => {
+  const locale = useGetLocale();
+  const cssPTBR = Locale.ptBr === locale && 'localeAtivo';
+  const cssEnUS = Locale.enUS === locale && 'localeAtivo';
   const router = useRouter().route.replace('/', '');
   return (
     <div className="flex items-center cursor-pointer py-5 px-3">
@@ -33,6 +38,17 @@ const menu = (navigation: NavigateItem[]) => {
           </Link>
         );
       })}
+      <a
+        className={`flex items-center cursor-pointer my-5 px-3 ${cssPTBR}`}
+        onClick={() => useSetLocale(Locale.ptBr)}>
+        PT
+      </a>
+
+      <a
+        className={`flex items-center cursor-pointer my-5 px-3 ${cssEnUS}`}
+        onClick={() => useSetLocale(Locale.enUS)}>
+        EN
+      </a>
     </div>
   );
 };
