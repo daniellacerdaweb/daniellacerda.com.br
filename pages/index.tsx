@@ -18,10 +18,14 @@ const Home = () => {
       animate="visible">
       <div className="w-full md:w-3/6 flex items-center">
         <div className="w-full ml-5">
-          <motion.h1 className="text-8xl text-gray-800 font-semibold mb-5 " variants={item}>
+          <motion.h1
+            className="text-gray-800 font-semibold mb-5 text-4xl sm:text-8xl"
+            variants={item}>
             Desenvolvedor
           </motion.h1>
-          <motion.h1 className="text-6xl text-gray-800 font-semibold mb-5" variants={item}>
+          <motion.h1
+            className=" text-gray-800 font-semibold mb-5 text-4xl sm:text-6xl"
+            variants={item}>
             Front-End
           </motion.h1>
         </div>

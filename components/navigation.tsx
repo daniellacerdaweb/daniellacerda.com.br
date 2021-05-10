@@ -10,8 +10,8 @@ type Props = {
 const Navigation = ({ listaNavigate }: Props) => {
   return (
     <header>
-      <nav className="mx-auto">
-        <div className="flex mx-20 justify-center items-center md:justify-between">
+      <nav>
+        <div className="flex items-center md:justify-between">
           {logo}
           {menu(listaNavigate)}
         </div>

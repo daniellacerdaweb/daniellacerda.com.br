@@ -25,7 +25,7 @@ const item3 = {
 const templateAbout = (data) => (
   <motion.div
     variants={item3}
-    className="flex h-full bg-no-repeat	bg-right-bottom	bg-contain"
+    className="flex flex-col h-full bg-no-repeat bg-right-bottom bg-contain md:flex-row "
     style={css}
     initial="hidden"
     animate="visible">

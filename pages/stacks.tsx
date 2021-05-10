@@ -14,13 +14,13 @@ const list3 = {
 
 const templateAbout = (data) => {
   const stacks = data.map(({ title, stacks }) => (
-    <div className="w-4/12">
+    <div className="flex w-full flex-col mt-10 mx-5 md:w-3/12">
       <h1 className="text-2xl font-semibold mb-5 ">{title}</h1>
       <div className="flex flex-wrap sm:text-center ">
         {stacks.map((stack) => (
           <motion.div
             key={stack}
-            className="w-36 rounded-full py-3 px-6 bg-yellow-200  m-1"
+            className="flex rounded-full py-3 px-6 bg-yellow-200  m-1"
             variants={item}>
             {stack}
           </motion.div>
@@ -40,7 +40,7 @@ const templateAbout = (data) => {
         {/* <div className="w-full">
           <h1 className="text-5xl font-semibold mb-5">Stacks</h1>
         </div> */}
-        <div className="flex flex-wrap justify-between w-full mt-10">{stacks}</div>
+        <div className="flex flex-wrap justify-between w-full">{stacks}</div>
       </div>
     </motion.div>
   );
