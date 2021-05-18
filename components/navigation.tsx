@@ -1,7 +1,7 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Link from 'next/link';
-import { NavigateItem } from './model/navigation';
 import { useRouter } from 'next/router';
+import { NavigateItem } from './model/navigation';
 import { useGetLocale, useSetLocale } from '../hook/useLocale';
 import { Locale } from '../model';
 
@@ -9,23 +9,21 @@ type Props = {
   listaNavigate: NavigateItem[];
 };
 
-const Navigation = ({ listaNavigate }: Props) => {
-  return (
-    <header>
-      <nav>
-        <div className="flex items-center md:justify-between">
-          {logo}
-          {menu(listaNavigate)}
-        </div>
-      </nav>
-    </header>
-  );
-};
+const Navigation = ({ listaNavigate }: Props) => (
+  <header>
+    <nav>
+      <div className="flex items-center md:justify-between">
+        {logo}
+        {menu(listaNavigate)}
+      </div>
+    </nav>
+  </header>
+);
 
 const menu = (navigation: NavigateItem[]) => {
   const locale = useGetLocale();
-  const cssPTBR = Locale.ptBr === locale && 'localeAtivo';
-  const cssEnUS = Locale.enUS === locale && 'localeAtivo';
+  // const cssPTBR = Locale.ptBr === locale && 'localeAtivo';
+  // const cssEnUS = Locale.enUS === locale && 'localeAtivo';
   const router = useRouter().route.replace('/', '');
   return (
     <div className="flex items-center cursor-pointer py-5 px-3">
@@ -38,7 +36,7 @@ const menu = (navigation: NavigateItem[]) => {
           </Link>
         );
       })}
-      <a
+      {/* <a
         className={`flex items-center cursor-pointer my-5 px-3 ${cssPTBR}`}
         onClick={() => useSetLocale(Locale.ptBr)}>
         PT
@@ -48,7 +46,7 @@ const menu = (navigation: NavigateItem[]) => {
         className={`flex items-center cursor-pointer my-5 px-3 ${cssEnUS}`}
         onClick={() => useSetLocale(Locale.enUS)}>
         EN
-      </a>
+      </a> */}
     </div>
   );
 };

@@ -28,10 +28,10 @@ const templateAbout = (data) => (
     style={css}
     initial="hidden"
     animate="visible">
-    <motion.div className="w-full md:w-3/6 flex items-center" variants={item}>
+    <motion.div className="w-full md:w-3/6 flex items-center m-10" variants={item}>
       <div className="w-full">
         {/* <h1 className="text-5xl text-gray-800 font-semibold mb-5">{data.title}</h1> */}
-        {convertRichText(data.contents.json)}
+        <div className="w-5/6">{convertRichText(data.contents.json)}</div>
       </div>
     </motion.div>
     <motion.div className="w-full md:w-3/6 flex items-end justify-end" variants={item2}>

@@ -29,13 +29,13 @@ const templateContato = (data) => (
     style={css}
     initial="hidden"
     animate="visible">
-    <motion.div className="w-full md:w-3/6 flex items-center" variants={item}>
-      <div className="w-full">
+    <motion.div className="w-full items-start  md:w-3/6 flex items-center " variants={item}>
+      <div className="w-full text-center md:text-left">
         {/* <h1 className="text-5xl text-gray-800 font-semibold mb-5">{data.title}</h1> */}
         {convertRichText(data.contents.json)}
       </div>
     </motion.div>
-    <motion.div className="w-full md:w-3/6 flex items-end justify-end" variants={item2}>
+    <motion.div className="hidden md:flex  w-full w-3/6  items-end justify-end" variants={item2}>
       <LazyLoadImage
         src={data.image.url}
         alt="profile"
